@@ -1505,6 +1505,10 @@ button:focus {
   transition: all 4s;
 }
 
+#resume a {
+  color: #fff;
+}
+
 
 /*======================
       9.COUNTER
