@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "newagent-5c4db",
+    "prod": "newagent-5c4db"
+  }
+}
