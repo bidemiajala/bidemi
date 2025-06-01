@@ -6,8 +6,8 @@ export function Header() {
   return (
     <header className="mb-8 flex items-center justify-between">
       <div>
-        <Link href="/" className="font-semibold text-black dark:text-white">
-          Demi Ajala
+        <Link href="/" className="font-semibold text-black dark:text-white" style={{ fontSize: '20px' }}>
+          Demi Ajala  🌍
         </Link>
         <TextEffect
           as="p"

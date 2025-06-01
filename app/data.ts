@@ -27,6 +27,20 @@ type SocialLink = {
   link: string
 }
 
+type TravelDestination = {
+  country: string
+  description: string
+  photos: string[]
+  id: string
+}
+
+type Article = {
+  title: string
+  description: string
+  url: string
+  id: string
+}
+
 export const PROJECTS: Project[] = [
   {
     name: 'E2E Lab',
@@ -139,3 +153,115 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 export const EMAIL = 'demiajala@outlook.com'
+
+export const TRAVEL_DESTINATIONS: TravelDestination[] = [
+  {
+    country: 'New York',
+    description: 'Skyline, Statue of Liberty, and Central Park.',
+    photos: [
+      'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=800&h=600&fit=crop',
+    ],
+    id: 'travel1',
+  },
+  {
+    country: 'Sicily',
+    description: 'Food, wine, and beautiful beaches.',
+    photos: [
+      'https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&h=600&fit=crop',
+    ],
+    id: 'travel2',
+  },
+  {
+    country: 'Iceland',
+    description: 'Northern lights, geysers, and breathtaking landscapes.',
+    photos: [
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1539593395743-7da5ee10ff07?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1476659230171-9fe9bb5fd5dd?w=800&h=600&fit=crop',
+    ],
+    id: 'travel3',
+  },
+  {
+    country: 'Morocco',
+    description: 'Vibrant markets, desert adventures, and rich traditions.',
+    photos: [
+      'https://images.unsplash.com/photo-1539650116574-75c0c6d73a0e?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1562003077-90a9fd8bad0a?w=800&h=600&fit=crop',
+    ],
+    id: 'travel4',
+  },
+  {
+    country: 'Malta',
+    description: 'Beautiful beaches, ancient history, and delicious food.',
+    photos: [
+      'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&h=600&fit=crop',
+    ],
+    id: 'travel5',
+  },
+  {
+    country: 'Greece',
+    description: 'Ancient history, stunning islands, and Mediterranean charm.',
+    photos: [
+      'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1603618812495-e2788c5e5fdf?w=800&h=600&fit=crop',
+    ],
+    id: 'travel6',
+  },
+  {
+    country: 'London',
+    description: 'Taxis, Harry Potter, and rain..',
+    photos: [
+      'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=800&h=600&fit=crop',
+    ],
+    id: 'travel7',
+  },
+  {
+    country: 'Turkey',
+    description: 'History, architecture, and delicious food.',
+    photos: [
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?w=800&h=600&fit=crop',
+    ],
+    id: 'travel8',
+  },
+  {
+    country: 'Lisbon',
+    description: 'Stunning nature, beaches, and friendly people.',
+    photos: [
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+    ],
+    id: 'travel9',
+  },
+  {
+    country: 'Algarve',
+    description: 'Beaches, fish, and sunsets.',
+    photos: [
+      'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1544985361-b420d7435000?w=800&h=600&fit=crop',
+    ],
+    id: 'travel10',
+  },
+]
+
+export const ARTICLES: Article[] = [
+  {
+    title: "Here's why you should write unit tests",
+    description: "A comprehensive guide exploring the benefits of unit testing, from saving time and money to improving code quality. Covers testing techniques, tools, and best practices for writing effective automated tests.",
+    url: "https://moduscreate.com/blog/heres-why-you-should-write-unit-tests/",
+    id: "article1",
+  },
+]
