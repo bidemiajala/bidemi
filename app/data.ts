@@ -29,6 +29,7 @@ type SocialLink = {
 
 type TravelDestination = {
   country: string
+  city: string
   description: string
   photos: string[]
   id: string
@@ -156,7 +157,8 @@ export const EMAIL = 'demiajala@outlook.com'
 
 export const TRAVEL_DESTINATIONS: TravelDestination[] = [
   {
-    country: 'New York',
+    country: 'USA',
+    city: 'New York',
     description: 'Skyline, Statue of Liberty, and Central Park.',
     photos: [
       'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop',
@@ -166,10 +168,11 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
     id: 'travel1',
   },
   {
-    country: 'Sicily',
+    country: 'Italy',
+    city: 'Sicily',
     description: 'Food, wine, and beautiful beaches.',
     photos: [
-      'https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=800&h=600&fit=crop',
+      'https://firebasestorage.googleapis.com/v0/b/newagent-5c4db.appspot.com/o/aron-van-de-pol-hXOGHaGCtdA-unsplash.jpg?alt=media&token=05bbf0cb-132a-4443-8efe-df2428ff6c6c',
       'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&h=600&fit=crop',
     ],
@@ -177,6 +180,7 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
   },
   {
     country: 'Iceland',
+    city: 'Reykjavik',
     description: 'Northern lights, geysers, and breathtaking landscapes.',
     photos: [
       'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
@@ -187,9 +191,10 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
   },
   {
     country: 'Morocco',
+    city: 'Essaouira',
     description: 'Vibrant markets, desert adventures, and rich traditions.',
     photos: [
-      'https://images.unsplash.com/photo-1539650116574-75c0c6d73a0e?w=800&h=600&fit=crop',
+      'https://firebasestorage.googleapis.com/v0/b/newagent-5c4db.appspot.com/o/aron-van-de-pol-hXOGHaGCtdA-unsplash.jpg?alt=media&token=05bbf0cb-132a-4443-8efe-df2428ff6c6c',
       'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1562003077-90a9fd8bad0a?w=800&h=600&fit=crop',
     ],
@@ -197,6 +202,7 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
   },
   {
     country: 'Malta',
+    city: 'Valletta',
     description: 'Beautiful beaches, ancient history, and delicious food.',
     photos: [
       'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&h=600&fit=crop',
@@ -207,6 +213,7 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
   },
   {
     country: 'Greece',
+    city: 'Athens',
     description: 'Ancient history, stunning islands, and Mediterranean charm.',
     photos: [
       'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&h=600&fit=crop',
@@ -216,8 +223,9 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
     id: 'travel6',
   },
   {
-    country: 'London',
-    description: 'Taxis, Harry Potter, and rain..',
+    country: 'England',
+    city: 'London',
+    description: 'Taxis, Harry Potter, and rain.',
     photos: [
       'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800&h=600&fit=crop',
@@ -227,6 +235,7 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
   },
   {
     country: 'Turkey',
+    city: 'Istanbul',
     description: 'History, architecture, and delicious food.',
     photos: [
       'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop',
@@ -236,7 +245,8 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
     id: 'travel8',
   },
   {
-    country: 'Lisbon',
+    country: 'Portugal',
+    city: 'Lisbon',
     description: 'Stunning nature, beaches, and friendly people.',
     photos: [
       'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop',
@@ -246,8 +256,9 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
     id: 'travel9',
   },
   {
-    country: 'Algarve',
-    description: 'Beaches, fish, and sunsets.',
+    country: 'Netherlands',
+    city: 'Amsterdam',
+    description: 'Architecture, windmills, and coffee shops.',
     photos: [
       'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?w=800&h=600&fit=crop',

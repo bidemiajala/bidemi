@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: '/'
   },
   title: {
-    default: 'Demi - Personal website',
+    default: 'Demi - Quality Engineer',
     template: '%s | Demi'
   },
   description: 'Quality engineer in New York.',

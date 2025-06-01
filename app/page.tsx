@@ -363,7 +363,7 @@ export default function Personal() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 text-left">
                       <h4 className="text-lg font-semibold text-white">
-                        {destination.country}
+                        {destination.city}
                       </h4>
                       <p className="text-sm text-white/80">
                         {destination.photos.length} photo{destination.photos.length !== 1 ? 's' : ''}
@@ -471,7 +471,7 @@ export default function Personal() {
         <h3 className="mb-5 text-lg font-medium"> 💬 Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
           Want to work together? Contact me at{' '}
-          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
+          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}?subject=Hello from your website 👋🏻`}>
             {EMAIL}
           </a>
         </p>
