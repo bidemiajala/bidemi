@@ -132,6 +132,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Instagram',
     link: 'https://www.instagram.com/oniri.ajo',
   },
+  {
+    label: 'Spotify',
+    link: 'https://open.spotify.com/user/jlmnwzz0sp3hv1hqiykwefl5v?si=92548ab827ff4991',
+  },
 ]
 
 export const EMAIL = 'demiajala@outlook.com'
