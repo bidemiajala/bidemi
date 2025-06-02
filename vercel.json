@@ -4,6 +4,17 @@
       "source": "/(.*)",
       "has": [
         {
+          "type": "host",
+          "value": "bidemi.xyz"
+        }
+      ],
+      "destination": "https://www.bidemi.xyz/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
           "type": "header",
           "key": "x-forwarded-proto",
           "value": "http"
