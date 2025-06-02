@@ -12,7 +12,8 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
+import { PageLoader, ImageLoader } from '@/components/ui/spinner'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
@@ -92,6 +93,44 @@ function ProjectVideo({ src }: ProjectVideoProps) {
   )
 }
 
+type ThumbnailImageProps = {
+  src: string
+  alt: string
+  city: string
+  photoCount: number
+}
+
+function ThumbnailImage({ src, alt, city, photoCount }: ThumbnailImageProps) {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <>
+      {isLoading && (
+        <div className="aspect-video w-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center rounded-xl">
+          <ImageLoader />
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
+        style={{ display: isLoading ? 'none' : 'block' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      <div className="absolute bottom-4 left-4 text-left">
+        <h4 className="text-lg font-semibold text-white">
+          {city}
+        </h4>
+        <p className="text-sm text-white/80">
+          {photoCount} photo{photoCount !== 1 ? 's' : ''}
+        </p>
+      </div>
+    </>
+  )
+}
+
 function MagneticSocialLink({
   children,
   link,
@@ -135,21 +174,51 @@ type PhotoCarouselProps = {
 
 function PhotoCarousel({ photos, country }: PhotoCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageLoadErrors, setImageLoadErrors] = useState<Set<number>>(new Set())
 
   const nextPhoto = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % photos.length)
+    setCurrentIndex((prev) => {
+      const newIndex = (prev + 1) % photos.length
+      setImageLoading(true)
+      return newIndex
+    })
   }, [photos.length])
 
   const prevPhoto = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length)
+    setCurrentIndex((prev) => {
+      const newIndex = (prev - 1 + photos.length) % photos.length
+      setImageLoading(true)
+      return newIndex
+    })
   }, [photos.length])
 
+  const handleImageLoad = () => {
+    setImageLoading(false)
+  }
+
+  const handleImageError = () => {
+    setImageLoading(false)
+    setImageLoadErrors(prev => new Set(prev).add(currentIndex))
+  }
+
+  const handleIndexChange = (index: number) => {
+    setCurrentIndex(index)
+    setImageLoading(true)
+  }
+
   return (
-    <div className="relative">
+    <div className="relative flex items-center justify-center bg-zinc-100 dark:bg-zinc-900 rounded-xl min-h-[50vh] md:min-h-[70vh] max-h-[80vh]">
+      {imageLoading && !imageLoadErrors.has(currentIndex) && (
+        <ImageLoader />
+      )}
       <img
         src={photos[currentIndex]}
         alt={`${country} photo ${currentIndex + 1}`}
-        className="aspect-video h-[50vh] w-full rounded-xl object-cover md:h-[70vh]"
+        className="max-h-[50vh] md:max-h-[70vh] max-w-full rounded-xl object-contain"
+        onLoad={handleImageLoad}
+        onError={handleImageError}
+        style={{ display: imageLoading && !imageLoadErrors.has(currentIndex) ? 'none' : 'block' }}
       />
       
       {/* Navigation buttons */}
@@ -176,7 +245,7 @@ function PhotoCarousel({ photos, country }: PhotoCarouselProps) {
           {photos.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => handleIndexChange(index)}
               className={`h-2 w-2 rounded-full transition-all ${
                 index === currentIndex
                   ? 'bg-white shadow-lg'
@@ -192,9 +261,23 @@ function PhotoCarousel({ photos, country }: PhotoCarouselProps) {
 
 export default function Personal() {
   const [visibleDestinations, setVisibleDestinations] = useState(4)
+  const [pageLoading, setPageLoading] = useState(true)
+
+  useEffect(() => {
+    // Simulate page loading time
+    const timer = setTimeout(() => {
+      setPageLoading(false)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const showMoreDestinations = () => {
     setVisibleDestinations(prev => Math.min(prev + 3, TRAVEL_DESTINATIONS.length))
+  }
+
+  if (pageLoading) {
+    return <PageLoader />
   }
 
   return (
@@ -358,24 +441,16 @@ export default function Personal() {
               >
                 <MorphingDialogTrigger className="group w-full">
                   <div className="relative cursor-pointer overflow-hidden rounded-xl">
-                    <img
+                    <ThumbnailImage 
                       src={destination.photos[0]}
                       alt={destination.country}
-                      className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      city={destination.city}
+                      photoCount={destination.photos.length}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 text-left">
-                      <h4 className="text-lg font-semibold text-white">
-                        {destination.city}
-                      </h4>
-                      <p className="text-sm text-white/80">
-                        {destination.photos.length} photo{destination.photos.length !== 1 ? 's' : ''}
-                      </p>
-                    </div>
                   </div>
                 </MorphingDialogTrigger>
                 <MorphingDialogContainer>
-                  <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+                  <MorphingDialogContent className="relative max-w-[90vw] max-h-[90vh] rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
                     <PhotoCarousel photos={destination.photos} country={destination.country} />
                   </MorphingDialogContent>
                   <MorphingDialogClose
