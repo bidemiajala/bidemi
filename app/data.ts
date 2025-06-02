@@ -71,7 +71,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://www.chilipiper.com',
     id: 'work1',
-    description: 'Leading quality assurance initiatives for revenue acceleration platform, implementing comprehensive testing strategies and mentoring QA team members.',
+    description: 'Implementing comprehensive testing strategies for a revenue acceleration platform, and building test automation frameworks.',
   },
   {
     company: 'Modus Create (Contract)',
@@ -80,7 +80,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: '2022',
     link: 'https://www.moduscreate.com',
     id: 'work2',
-    description: 'Designed and implemented automated testing frameworks for enterprise clients, reducing testing cycles by 60% and improving deployment confidence.',
+    description: 'Designed and implemented automated testing frameworks for enterprise clients and improving deployment confidence.',
   },
   {
     company: 'Okra',
@@ -89,7 +89,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: '2022',
     link: 'https://okra.ng/',
     id: 'work3',
-    description: 'Established QA processes and testing standards for fintech platform, ensuring PCI compliance and building robust test automation infrastructure.',
+    description: 'Established QA processes and testing standards for fintech platform and building a robust test automation infrastructure.',
   },
   {
     company: 'Intelia',
@@ -107,7 +107,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: '2019',
     link: 'https://www.ericsson.com',
     id: 'work5',
-    description: 'Performed quality assurance for telecommunications software solutions, specializing in network management systems and 5G infrastructure testing.',
+    description: 'Performed quality assurance for telecommunications software, specializing in network management systems and 4G infrastructure testing.',
   },
 ]
 
