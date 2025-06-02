@@ -159,7 +159,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ]
 
-export const EMAIL = 'demiajala@outlook.com'
+export const EMAIL = 'hi@bidemi.xyz'
 
 export const TRAVEL_DESTINATIONS: TravelDestination[] = [
   {
