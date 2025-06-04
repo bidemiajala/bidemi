@@ -14,6 +14,7 @@ type WorkExperience = {
   link: string
   id: string
   description: string
+  location: string
 }
 
 type BlogPost = {
@@ -72,6 +73,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://www.chilipiper.com',
     id: 'work1',
     description: 'Implementing comprehensive testing strategies for a revenue acceleration platform, and building test automation frameworks.',
+    location: 'New York, NY',
   },
   {
     company: 'Modus Create (Contract)',
@@ -81,6 +83,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://www.moduscreate.com',
     id: 'work2',
     description: 'Designed and implemented automated testing frameworks for enterprise clients and improving deployment confidence.',
+    location: 'Remote',
   },
   {
     company: 'Okra',
@@ -90,6 +93,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://okra.ng/',
     id: 'work3',
     description: 'Established QA processes and testing standards for fintech platform and building a robust test automation infrastructure.',
+    location: 'Remote',
   },
   {
     company: 'Intelia',
@@ -99,6 +103,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://www.intelia.io',
     id: 'work4',
     description: 'Developed comprehensive test strategies for AI-powered analytics platform, implementing API testing frameworks and performance testing protocols.',
+    location: 'Remote',
   },
   {
     company: 'Ericsson',
@@ -108,6 +113,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://www.ericsson.com',
     id: 'work5',
     description: 'Performed quality assurance for telecommunications software, specializing in network management systems and 4G infrastructure testing.',
+    location: 'Lagos, Nigeria',
   },
 ]
 
