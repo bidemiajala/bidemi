@@ -57,18 +57,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.bidemi.xyz',
-    siteName: 'Bidemi Ajala - AI Quality Engineer',
-    title: 'Bidemi Ajala - AI Quality Engineer',
+    siteName: 'Bidemi Ajala - Quality Engineer',
+    title: 'Bidemi Ajala - Quality Engineer',
     description: 'Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.',
-    images: [
-      {
-        url: '/cover.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Bidemi Ajala - AI Quality Engineer',
-        type: 'image/jpeg',
-      }
-    ],
   },
   verification: {
     google: '', // Add your Google Search Console verification code here
@@ -79,11 +70,11 @@ export const metadata: Metadata = {
   classification: 'Business',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
-      { url: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>', sizes: 'any', type: 'image/svg+xml' }
+      { url: '/profile-avatar.png', sizes: '32x32', type: 'image/png' },
+      { url: '/profile-avatar.png', sizes: '16x16', type: 'image/png' }
     ],
     apple: [
-      { url: '/cover.jpg', sizes: '180x180', type: 'image/jpeg' }
+      { url: '/profile-avatar.png', sizes: '180x180', type: 'image/png' }
     ],
   },
 };
