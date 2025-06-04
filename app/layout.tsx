@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
+import { StructuredData } from '@/components/structured-data'
 import './globals.css'
 
 export const viewport: Viewport = {
@@ -14,17 +15,76 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bidemi.xyz'),
+  metadataBase: new URL('https://www.bidemi.xyz'),
   alternates: {
     canonical: '/'
   },
   title: {
-    default: 'Demi - Quality Engineer',
-    template: '%s | Demi'
+    default: 'Bidemi Ajala - Quality Engineer',
+    template: '%s | Bidemi Ajala'
   },
-  description: 'AI Quality engineer based in New York.',
+  description: 'Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance. Based in New York.',
+  keywords: [
+    'QA Engineer',
+    'Quality Assurance',
+    'Test Automation',
+    'AI Testing',
+    'Cypress',
+    'Playwright',
+    'API Testing',
+    'Fintech QA',
+    'Software Quality',
+    'Test Strategy',
+    'QA Lead',
+    'New York',
+    'Bidemi Ajala'
+  ],
+  authors: [{ name: 'Bidemi Ajala', url: 'https://www.bidemi.xyz' }],
+  creator: 'Bidemi Ajala',
+  publisher: 'Bidemi Ajala',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://www.bidemi.xyz',
+    siteName: 'Bidemi Ajala - AI Quality Engineer',
+    title: 'Bidemi Ajala - AI Quality Engineer',
+    description: 'Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.',
+    images: [
+      {
+        url: '/cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Bidemi Ajala - AI Quality Engineer',
+        type: 'image/jpeg',
+      }
+    ],
+  },
+  verification: {
+    google: '', // Add your Google Search Console verification code here
+    yandex: '', // Add if needed
+    yahoo: '', // Add if needed
+  },
+  category: 'Technology',
+  classification: 'Business',
   icons: {
-    icon: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>', sizes: 'any', type: 'image/svg+xml' }
+    ],
+    apple: [
+      { url: '/cover.jpg', sizes: '180x180', type: 'image/jpeg' }
+    ],
   },
 };
 
@@ -45,6 +105,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
       >
