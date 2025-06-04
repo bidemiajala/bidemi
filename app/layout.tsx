@@ -60,6 +60,15 @@ export const metadata: Metadata = {
     siteName: 'Bidemi Ajala - Quality Engineer',
     title: 'Bidemi Ajala - Quality Engineer',
     description: 'Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Bidemi Ajala - Quality Engineer',
+        type: 'image/png',
+      }
+    ],
   },
   verification: {
     google: '', // Add your Google Search Console verification code here
