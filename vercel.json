@@ -9,19 +9,6 @@
         }
       ],
       "destination": "https://www.bidemi.xyz/$1",
-      "permanent": true,
-      "statusCode": 301
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-forwarded-proto",
-          "value": "http"
-        }
-      ],
-      "destination": "https://www.bidemi.xyz/$1",
       "permanent": true
     }
   ],
