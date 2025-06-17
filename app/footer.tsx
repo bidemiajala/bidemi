@@ -72,7 +72,7 @@ export function Footer() {
       <div className="flex items-center justify-between">
         <a href="https://github.com/bidemiajala" target="_blank">
           <TextLoop className="text-xs text-zinc-500">
-            <span>© 2025 Demi </span>
+            <span>© 2025 B.A </span>
             <span>Built with ☕ and procrastination.</span>
           </TextLoop>
         </a>

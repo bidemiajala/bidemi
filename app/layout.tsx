@@ -45,6 +45,10 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    noarchive: false,
+    nosnippet: false,
+    noimageindex: false,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -71,7 +75,8 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: '', // Add your Google Search Console verification code here
+    google: '', // TODO: Add your Google Search Console verification code here (e.g., 'abc123xyz789')
+    // To get this code: Google Search Console → Settings → Ownership verification → HTML tag method
     yandex: '', // Add if needed
     yahoo: '', // Add if needed
   },

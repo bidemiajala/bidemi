@@ -12,15 +12,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 1,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
   ]
 
-  // Dynamic blog pages
-  const blogPages = BLOG_POSTS.map((post) => ({
-    url: `${baseUrl}${post.link}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }))
+  // Dynamic blog pages - commented out until blog posts are added
+  // const blogPages = BLOG_POSTS.map((post) => ({
+  //   url: `${baseUrl}${post.link}`,
+  //   lastModified: new Date(),
+  //   changeFrequency: 'weekly' as const,
+  //   priority: 0.8,
+  // }))
 
-  return [...staticPages, ...blogPages]
+  return [...staticPages] // Add ...blogPages when blog posts are ready
 } 
