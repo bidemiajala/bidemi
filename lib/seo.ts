@@ -14,7 +14,7 @@ interface SEOProps {
 export function generateSEO(props: SEOProps): Metadata {
   const {
     title = 'Bidemi Ajala - AI Quality Engineer',
-    description = 'Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.',
+    description = 'Software Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.',
     image = '/cover.jpg',
     url = '/',
     type = 'website',
