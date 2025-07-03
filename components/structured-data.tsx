@@ -8,7 +8,7 @@ export function StructuredData() {
     "url": "https://www.bidemi.xyz",
     "image": "https://www.bidemi.xyz/cover.jpg",
     "jobTitle": "AI Quality Engineer",
-    "description": "Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.",
+    "description": "Software Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.",
     "email": EMAIL,
     "knowsAbout": [
       "Quality Assurance",
@@ -37,7 +37,7 @@ export function StructuredData() {
     "sameAs": SOCIAL_LINKS.map(link => link.link),
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Quality Engineer",
+      "name": "Software Quality Engineer",
       "occupationLocation": {
         "@type": "City",
         "name": "New York"
