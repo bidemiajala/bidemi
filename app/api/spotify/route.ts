@@ -16,11 +16,16 @@ interface SpotifyTrack {
   artists: { name: string }[]
   album: {
     name: string
+    release_date: string
     images: { url: string; height: number; width: number }[]
   }
   external_urls: {
     spotify: string
   }
+  duration_ms: number
+  explicit: boolean
+  popularity: number
+  track_number: number
 }
 
 interface SpotifyCurrentlyPlaying {
