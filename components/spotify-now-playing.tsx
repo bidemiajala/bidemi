@@ -27,7 +27,14 @@ export default function SpotifyNowPlaying() {
   const [lastUpdateTime, setLastUpdateTime] = useState<number>(0)
 
   useEffect(() => {
+    let apiInterval: NodeJS.Timeout | null = null
+    
     const fetchSpotifyData = async () => {
+      // Don't fetch if page is not visible (saves resources when user tabs away)
+      if (document.hidden) {
+        return
+      }
+      
       try {
         const response = await fetch('/api/spotify')
         if (!response.ok) {
@@ -56,12 +63,36 @@ export default function SpotifyNowPlaying() {
       }
     }
 
-    fetchSpotifyData()
+    const startPolling = () => {
+      fetchSpotifyData()
+      apiInterval = setInterval(fetchSpotifyData, 20000)
+    }
+
+    const stopPolling = () => {
+      if (apiInterval) {
+        clearInterval(apiInterval)
+        apiInterval = null
+      }
+    }
+
+    // Start initial polling
+    startPolling()
     
-    // Check for updates every 20 seconds (balanced between responsiveness and resource usage)
-    const apiInterval = setInterval(fetchSpotifyData, 20000)
+    // Pause polling when page is hidden, resume when visible (saves resources)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopPolling()
+      } else {
+        startPolling()
+      }
+    }
     
-    return () => clearInterval(apiInterval)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    
+    return () => {
+      stopPolling()
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
   }, [])
 
   // Real-time progress bar updates
