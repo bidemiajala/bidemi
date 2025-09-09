@@ -294,7 +294,7 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Software Quality Engineer focused on the quality of web apps for the past 10+ years 🚀. Passionate about travel, photography, and delivering bug-free user experiences. <br/>
+            Software Quality Engineer working on the quality of web apps for the past 10+ years 🚀. I care about travel, photography, and delivering bug-free user experiences. <br/>
             <br/>
             I like building products that sit at the intersection of revenue, finance, and AI. 
             A few years back, I joined the team at <a href="https://www.chilipiper.com" target="_blank" rel="noopener noreferrer" className="group relative text-zinc-900 dark:text-zinc-50">Chili Piper<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span></a>, where I get to work on enhancing how companies convert demand into actual business. 
@@ -557,7 +557,8 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium"> 🎵 Music</h3>
         <p className="mb-6 text-zinc-600 dark:text-zinc-400">
-          Music is a big part of my day. I'm constantly listening to house (like, embarrassingly often), jazz, R&B, and pretty much anything that sounds interesting. I got nerdy about it and built a streamer that displays whatever's currently playing or the last song I had on. Check it out and see if we share any musical interests
+          Music is a big part of my day - I'm constantly listening to house (like, embarrassingly often), jazz, R&B, and pretty much anything that sounds interesting. 
+          I got nerdy about it and built a streamer that displays whatever's currently playing or the last song I had on. Check it and see if we share any musical interests 😊.
         </p>
         <SpotifyNowPlaying />
       </motion.section>
