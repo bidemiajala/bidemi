@@ -1,20 +1,20 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "bidemi.xyz"
         }
       ],
-      "destination": "https://www.bidemi.xyz/$1",
+      "destination": "https://www.bidemi.xyz/:path*",
       "permanent": true
     }
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         {
           "key": "Strict-Transport-Security",
