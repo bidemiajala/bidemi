@@ -64,6 +64,9 @@ export const PROJECTS: Project[] = [
   },
 ]
 
+export const EXPERIENCE_OVERVIEW =
+  'Over the last 7+ years I’ve worked as an Automation Engineer and Automation Lead across Fortune 500 companies, startups, and financial institutions around the world building test automation frameworks, leading QA teams, and improving release confidence for products.'
+
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Chili Piper',
@@ -75,46 +78,46 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     description: 'Implementing comprehensive testing strategies for a revenue acceleration platform, and building test automation frameworks.',
     location: 'New York, NY',
   },
-  {
-    company: 'Modus Create (Contract)',
-    title: 'Sr. Automation Engineer',
-    start: '2021',
-    end: '2022',
-    link: 'https://www.moduscreate.com',
-    id: 'work2',
-    description: 'Designed and implemented automated testing frameworks for enterprise clients and improving deployment confidence.',
-    location: 'Remote',
-  },
-  {
-    company: 'Okra',
-    title: 'QA Lead',
-    start: '2020',
-    end: '2022',
-    link: 'https://okra.ng/',
-    id: 'work3',
-    description: 'Established QA processes and testing standards for fintech platform and building a robust test automation infrastructure.',
-    location: 'Remote',
-  },
-  {
-    company: 'Intelia',
-    title: 'Sr. QA Engineer',
-    start: '2019',
-    end: '2020',
-    link: 'https://www.intelia.io',
-    id: 'work4',
-    description: 'Developed comprehensive test strategies for AI-powered analytics platform, implementing API testing frameworks and performance testing protocols.',
-    location: 'Remote',
-  },
-  {
-    company: 'Ericsson',
-    title: 'QA Analyst',
-    start: '2014',
-    end: '2019',
-    link: 'https://www.ericsson.com',
-    id: 'work5',
-    description: 'Performed quality assurance for telecommunications software, specializing in network management systems and 4G infrastructure testing.',
-    location: 'Lagos, Nigeria',
-  },
+  // {
+  //   company: 'Modus Create (Contract)',
+  //   title: 'Sr. Automation Engineer',
+  //   start: '2021',
+  //   end: '2022',
+  //   link: 'https://www.moduscreate.com',
+  //   id: 'work2',
+  //   description: 'Designed and implemented automated testing frameworks for enterprise clients and improving deployment confidence.',
+  //   location: 'Remote',
+  // },
+  // {
+  //   company: 'Okra',
+  //   title: 'QA Lead',
+  //   start: '2020',
+  //   end: '2022',
+  //   link: 'https://okra.ng/',
+  //   id: 'work3',
+  //   description: 'Established QA processes and testing standards for fintech platform and building a robust test automation infrastructure.',
+  //   location: 'Remote',
+  // },
+  // {
+  //   company: 'Intelia',
+  //   title: 'Sr. QA Engineer',
+  //   start: '2019',
+  //   end: '2020',
+  //   link: 'https://www.intelia.io',
+  //   id: 'work4',
+  //   description: 'Developed comprehensive test strategies for AI-powered analytics platform, implementing API testing frameworks and performance testing protocols.',
+  //   location: 'Remote',
+  // },
+  // {
+  //   company: 'Ericsson',
+  //   title: 'QA Analyst',
+  //   start: '2014',
+  //   end: '2019',
+  //   link: 'https://www.ericsson.com',
+  //   id: 'work5',
+  //   description: 'Performed quality assurance for telecommunications software, specializing in network management systems and 4G infrastructure testing.',
+  //   location: 'Lagos, Nigeria',
+  // },
 ]
 
 export const BLOG_POSTS: BlogPost[] = [

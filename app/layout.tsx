@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     canonical: '/'
   },
   title: {
-    default: 'Bidemi Ajala - Software Quality Engineer',
+    default: 'Bidemi Ajala - Automation Engineer',
     template: '%s | Bidemi Ajala'
   },
-  description: 'Software Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance. Based in New York.',
+  description: 'Automation Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance. Based in New York.',
   keywords: [
     'QA Engineer',
     'Quality Assurance',
@@ -61,15 +61,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.bidemi.xyz',
-    siteName: 'Bidemi Ajala - Software Quality Engineer',
-    title: 'Bidemi Ajala - Software Quality Engineer',
-    description: 'Software Quality Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.',
+    siteName: 'Bidemi Ajala - Automation Engineer',
+    title: 'Bidemi Ajala - Automation Engineer',
+    description: 'Automation Engineer with 10+ years experience building test automation frameworks and quality systems. Specializing in AI testing, fintech, and enterprise software quality assurance.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Bidemi Ajala - Software Quality Engineer',
+        alt: 'Bidemi Ajala - Automation Engineer',
         type: 'image/png',
       }
     ],

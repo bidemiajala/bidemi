@@ -17,6 +17,7 @@ import { PageLoader, ImageLoader } from '@/components/ui/spinner'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
+  EXPERIENCE_OVERVIEW,
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
@@ -294,14 +295,12 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Software Quality Engineer improving the quality of web apps for the past 10+ years 🚀. I care about travel, photography, and delivering bug-free user experiences. <br/>
+            Automation Engineer improving the quality of web apps for the past 10+ years 🚀. I care about travel, photography, and delivering bug-free user experiences. <br/>
             <br/>
-            I like building products that sit at the intersection of revenue, finance, and AI. 
             A few years back, I joined the team at <a href="https://www.chilipiper.com" target="_blank" rel="noopener noreferrer" className="group relative text-zinc-900 dark:text-zinc-50">Chili Piper<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span></a>, where I get to work on enhancing how companies convert demand into actual business. 
             These days, you'll find me helping to build <a href="https://www.chilipiper.com/distro" target="_blank" rel="noopener noreferrer" className="group relative text-zinc-900 dark:text-zinc-50">Distro<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span></a>, where we're simplifying lead routing. <br/>
             <br/>
-            AI has completely captured my attention lately. I'm spending way too much time in <a href="https://www.cursor.com" target="_blank" rel="noopener noreferrer" className="group relative text-zinc-900 dark:text-zinc-50">Cursor<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span></a>, experimenting with <a href="https://www.bolt.new" target="_blank" rel="noopener noreferrer" className="group relative text-zinc-900 dark:text-zinc-50">Bolt<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span></a>, and getting my hands dirty with MCP servers. 
-            The biggest lightbulb moment for me has been realizing that AI is only as good as the prompts you give it—garbage in, garbage out, you know? I've been using <a href="https://www.pretty-prompt.com" target="_blank" rel="noopener noreferrer" className="group relative text-zinc-900 dark:text-zinc-50">Pretty Prompt<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span></a> to level up my game, but I'm also nerding out on the core principles of prompt engineering.
+            AI has completely captured my attention lately. I'm spending way too much time in <a href="https://www.cursor.com" target="_blank" rel="noopener noreferrer" className="group relative text-zinc-900 dark:text-zinc-50">Cursor<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span></a>, and exploring MCP servers.
           </p>  
         </div>
       </motion.section>
@@ -396,7 +395,61 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium"> 👨🏾‍💻 Professional Experience</h3>
         <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
+          {WORK_EXPERIENCE.slice(0, 1).map((job) => (
+            <a
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              href={job.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={job.id}
+            >
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="relative flex w-full flex-row justify-between">
+                  <div className="flex-1">
+                    <h4 className="font-normal dark:text-zinc-100">
+                      {job.title}
+                    </h4>
+                    <div className="flex items-center gap-2">
+                      <p className="text-zinc-500 dark:text-zinc-400">
+                        {job.company}
+                      </p>
+                      <span className="text-xs text-zinc-400 dark:text-zinc-500">
+                        📍 {job.location}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                      {job.description}
+                    </p>
+                  </div>
+                  <p className="text-zinc-600 dark:text-zinc-400">
+                    {job.start} - {job.end}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+          <div
+            className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+            aria-label="Experience overview"
+          >
+            <Spotlight
+              className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+              size={64}
+            />
+            <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+              <h4 className="font-normal dark:text-zinc-100">
+                Previously...
+              </h4>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                {EXPERIENCE_OVERVIEW}
+              </p>
+            </div>
+          </div>
+          {WORK_EXPERIENCE.slice(1).map((job) => (
             <a
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
               href={job.link}
@@ -560,8 +613,8 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium"> 🎵 Music</h3>
         <p className="mb-6 text-zinc-600 dark:text-zinc-400">
-          Music is a big part of my day - I'm constantly listening to house (like, embarrassingly often), jazz, R&B, and pretty much anything that sounds interesting. 
-          I got nerdy about it and built a streamer that displays whatever's currently playing or the last song I had on. Check it and see if we share any musical interests 😊.
+          Music is a big part of my day. I'm constantly listening to house, jazz, R&B, and pretty much anything that sounds interesting. 
+          I got nerdy about it and built a streamer that displays whatever's currently playing or the last song I had on.
         </p>
         <SpotifyNowPlaying />
       </motion.section>
