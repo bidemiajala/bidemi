@@ -27,6 +27,41 @@ That's the whole thing. The `description` is what Claude reads to decide whether
 
 Skills can live at three levels: personal (`~/.claude/skills/`), project (`.claude/skills/`), or enterprise-wide. Personal skills follow you across every project. Project skills are specific to a repo. The scope depends on what you're building.
 
+Here's how it all fits together:
+
+```
+  You                    Claude Code               Skill
+  ───                    ───────────               ─────
+   │                          │                      │
+   │   /pr-description        │                      │
+   │ ─────────────────────►   │                      │
+   │                          │   load SKILL.md      │
+   │                          │ ────────────────────►│
+   │                          │                      │
+   │                          │   instructions +     │
+   │                          │   frontmatter        │
+   │                          │ ◄────────────────────│
+   │                          │                      │
+   │                          │  run git diff,       │
+   │                          │  read commits        │
+   │                          │ ────────────────────►│
+   │                          │                      │
+   │   PR description         │   output             │
+   │ ◄─────────────────────   │ ◄────────────────────│
+   │                          │                      │
+
+  Auto-invocation (when disable-model-invocation is false):
+
+  You                    Claude Code               Skill
+  ───                    ───────────               ─────
+   │                          │                      │
+   │  "how does this work?"   │  description matches │
+   │ ─────────────────────►   │ ────────────────────►│
+   │                          │   load + run inline  │
+   │   response with skill    │ ◄────────────────────│
+   │ ◄─────────────────────   │                      │
+```
+
 ## Why more skills means a better Claude
 
 Here's the thing about Claude Skills: they're not just shortcuts. They're a way to teach Claude how you actually work.
