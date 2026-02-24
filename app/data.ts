@@ -48,6 +48,13 @@ type Article = {
 
 export const PROJECTS: Project[] = [
   {
+    name: 'PR Description',
+    description: 'A Claude Code skill that auto-generates pull request descriptions by analyzing git diffs and commit messages.',
+    link: 'https://github.com/bidemiajala/pr-description',
+    video: '',
+    id: 'project0',
+  },
+  {
     name: 'E2E Lab',
     description:
       'Test automation playground built in React, tested with Cypress and Playwright.',
