@@ -261,6 +261,125 @@ function PhotoCarousel({ photos, country }: PhotoCarouselProps) {
   )
 }
 
+const ARTICLES_PAGE_SIZE = 3
+
+type CombinedArticle =
+  | { kind: 'internal'; uid: string; title: string; description: string; link: string; date: string }
+  | { kind: 'external'; id: string; title: string; description: string; url: string; date: string }
+
+const ALL_ARTICLES: CombinedArticle[] = [
+  ...BLOG_POSTS.map((p) => ({
+    kind: 'internal' as const,
+    uid: p.uid,
+    title: p.title,
+    description: p.description,
+    link: p.link,
+    date: p.date,
+  })),
+  ...ARTICLES.map((a) => ({
+    kind: 'external' as const,
+    id: a.id,
+    title: a.title,
+    description: a.description,
+    url: a.url,
+    date: a.date,
+  })),
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+const ExternalIcon = () => (
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 15 15"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="shrink-0 opacity-50"
+  >
+    <path
+      d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+      fill="currentColor"
+      fillRule="evenodd"
+      clipRule="evenodd"
+    />
+  </svg>
+)
+
+function ArticlesSection() {
+  const [visible, setVisible] = useState(ARTICLES_PAGE_SIZE)
+  const shown = ALL_ARTICLES.slice(0, visible)
+  const hasMore = visible < ALL_ARTICLES.length
+
+  return (
+    <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+      <h3 className="mb-5 text-lg font-medium"> 📚 Articles</h3>
+      <div className="flex flex-col gap-2">
+        {shown.map((item) => {
+          const key = item.kind === 'internal' ? item.uid : item.id
+          const isExternal = item.kind === 'external'
+          const href = isExternal ? item.url : item.link
+          const Tag = isExternal ? 'a' : Link
+          const extraProps = isExternal
+            ? { target: '_blank', rel: 'noopener noreferrer' }
+            : {}
+
+          return (
+            <Tag
+              key={key}
+              href={href}
+              {...(extraProps as any)}
+              className="group flex flex-col gap-1 rounded-xl border border-zinc-200 p-4 transition-colors hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:border-zinc-700 dark:hover:bg-zinc-900"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <span className="font-[450] text-zinc-900 dark:text-zinc-50">
+                  {item.title}
+                </span>
+                <div className="flex shrink-0 items-center gap-1.5 pt-0.5">
+                  {isExternal && <ExternalIcon />}
+                  <time
+                    dateTime={item.date}
+                    className="text-xs text-zinc-400 dark:text-zinc-500"
+                  >
+                    {new Date(item.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                    })}
+                  </time>
+                </div>
+              </div>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                {item.description}
+              </p>
+            </Tag>
+          )
+        })}
+      </div>
+      <div className="mt-6 text-center">
+        {hasMore ? (
+          <button
+            onClick={() => setVisible((v) => v + ARTICLES_PAGE_SIZE)}
+            className="inline-flex items-center gap-1 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 2L6 10M2 6L10 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+        ) : (
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            View all on blog
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 2L6 10M2 6L10 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </Link>
+        )}
+      </div>
+    </motion.section>
+  )
+}
+
 export default function Personal() {
   const [visibleDestinations, setVisibleDestinations] = useState(4)
   const [pageLoading, setPageLoading] = useState(true)
@@ -349,45 +468,7 @@ export default function Personal() {
         </div>
       </motion.section>
 
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium"> 📚 Articles</h3>
-        <div className="space-y-4">
-          {ARTICLES.map((article) => (
-            <div key={article.id} className="px-1">
-              <a
-                className="font-base group relative inline-flex items-center gap-1 font-[450] text-zinc-900 dark:text-zinc-50"
-                href={article.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {article.title}
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-3 w-3 opacity-60 transition-opacity group-hover:opacity-100"
-                >
-                  <path
-                    d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-              </a>
-              <p className="mt-1 text-base text-zinc-600 dark:text-zinc-400">
-                {article.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </motion.section>
+      <ArticlesSection />
 
       <motion.section
         variants={VARIANTS_SECTION}
@@ -636,6 +717,14 @@ export default function Personal() {
               {link.label}
             </MagneticSocialLink>
           ))}
+          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+            <Link
+              href="/blog"
+              className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+            >
+              Blog
+            </Link>
+          </Magnetic>
         </div>
       </motion.section>
     </motion.main>

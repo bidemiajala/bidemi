@@ -1,0 +1,67 @@
+# Why Every Engineer Should Write Unit Tests
+
+I've been in enough sprint reviews to know what "we didn't have time to write tests" really means. It means the next sprint is going to be slower. And the one after that slower still.
+
+Unit testing is one of those things that feels optional when you're moving fast, and feels mandatory after you've broken production for the third time with a change you were sure was safe. I've been on both sides of that experience, and I'll take tests every time.
+
+## What a unit test actually is
+
+A unit test checks one thing in isolation. One function, one module, one piece of logic. No network, no database, no UI. Just: given this input, do I get this output?
+
+```js
+function calculateDiscount(price, percentage) {
+  if (percentage < 0 || percentage > 100) throw new Error('Invalid percentage')
+  return price * (1 - percentage / 100)
+}
+
+test('applies 20% discount correctly', () => {
+  expect(calculateDiscount(100, 20)).toBe(80)
+})
+
+test('throws on invalid percentage', () => {
+  expect(() => calculateDiscount(100, -5)).toThrow('Invalid percentage')
+})
+```
+
+That's it. Two tests, two guarantees. And six months from now when someone refactors that function, those guarantees still hold.
+
+## The thing people get wrong about coverage
+
+Coverage is not the goal. Confidence is the goal.
+
+A codebase with 40% coverage of the right things is more trustworthy than one with 90% coverage of getters and setters. When I've helped teams set up their first testing culture, I always tell them to start with the code that would hurt the most to break: pricing logic, auth checks, state transitions, validation rules.
+
+Those are the tests that will save you on a Friday night.
+
+## The objection I hear most
+
+"We don't have time."
+
+I get it. Deadlines are real. But here's what I've noticed after working across fintech startups and larger engineering orgs: the teams that skip tests don't actually move faster. They move fast for a few sprints and then spend the next few sprints fixing what broke. The teams with solid unit test coverage ship at a steadier pace and with a lot less anxiety.
+
+Writing a test takes maybe ten extra minutes. Debugging the regression it would have caught can take a day.
+
+## Where to actually start
+
+If your codebase has zero tests right now, don't try to retrofit everything at once. That's a quick path to burnout and abandoned test files.
+
+Start here:
+
+1. **Pure functions.** Anything that takes input and returns output with no side effects. These are the easiest to test and the most satisfying to get green.
+2. **Business logic.** The stuff that makes money or protects data. Discount calculations, validation, access control.
+3. **Bug fixes.** Every time you fix a bug, write a test that would have caught it. Over time, your bug history becomes your test suite.
+
+Add tests as you touch code. Don't make it a separate project.
+
+## Tools I'd recommend
+
+- **Jest** for most JavaScript and TypeScript projects
+- **Vitest** if you're on Vite, it's Jest-compatible and noticeably faster
+- **Pytest** for Python, still the best option
+- **Playwright component testing** when you need to test UI logic beyond snapshots
+
+Pick one and be consistent. The tool matters less than the habit.
+
+---
+
+If you're on a team that doesn't test much, the best thing you can do is just start. Write one test for the next function you touch. Then another. That's how testing cultures actually get built, not from a top-down mandate but from one engineer deciding it's worth it.

@@ -22,6 +22,7 @@ type BlogPost = {
   description: string
   link: string
   uid: string
+  date: string
 }
 
 type SocialLink = {
@@ -42,6 +43,7 @@ type Article = {
   description: string
   url: string
   id: string
+  date: string
 }
 
 export const PROJECTS: Project[] = [
@@ -121,33 +123,14 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
-  // Template blog posts - commented out for now, uncomment when ready to add real content
-  // {
-  //   title: 'Exploring the Intersection of Design, AI, and Design Engineering',
-  //   description: 'How AI is changing the way we design',
-  //   link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-  //   uid: 'blog-1',
-  // },
-  // {
-  //   title: 'Why I left my job to start my own company',
-  //   description:
-  //     'A deep dive into my decision to leave my job and start my own company',
-  //   link: '/blog/why-i-left-my-job-to-start-my-own-company',
-  //   uid: 'blog-2',
-  // },
-  // {
-  //   title: 'What I learned from my first year of freelancing',
-  //   description:
-  //     'A look back at my first year of freelancing and what I learned',
-  //   link: '/blog/what-i-learned-from-my-first-year-of-freelancing',
-  //   uid: 'blog-3',
-  // },
-  // {
-  //   title: 'How to Export Metadata from MDX for Next.js SEO',
-  //   description: 'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
-  //   link: '/blog/example-mdx-metadata',
-  //   uid: 'blog-4',
-  // },
+  {
+    title: 'Why Every Engineer Should Write Unit Tests',
+    description:
+      'Unit tests are often skipped under time pressure, but they pay dividends in code quality, refactoring confidence, and team velocity.',
+    link: '/blog/why-engineers-should-write-unit-tests',
+    uid: 'why-engineers-should-write-unit-tests',
+    date: '2026-02-24',
+  },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -247,5 +230,6 @@ export const ARTICLES: Article[] = [
     description: "A comprehensive guide exploring the benefits of unit testing, from saving time and money to improving code quality. Covers testing techniques, tools, and best practices for writing effective automated tests.",
     url: "https://moduscreate.com/blog/heres-why-you-should-write-unit-tests/",
     id: "article1",
+    date: "2022-03-15",
   },
 ]
