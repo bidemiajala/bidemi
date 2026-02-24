@@ -67,12 +67,18 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-image.png',
-        width: 1200,
-        height: 630,
+        width: 528,
+        height: 560,
         alt: 'Bidemi Ajala - Automation Engineer',
         type: 'image/png',
       }
     ],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Bidemi Ajala - Automation Engineer',
+    description: 'Automation Engineer with 10+ years experience building test automation frameworks and quality systems.',
+    images: ['/og-image.png'],
   },
   verification: {
     google: '', // TODO: Add your Google Search Console verification code here (e.g., 'abc123xyz789')
