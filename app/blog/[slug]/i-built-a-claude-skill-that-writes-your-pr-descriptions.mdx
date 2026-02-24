@@ -1,0 +1,72 @@
+# I Built a Claude Skill That Writes Your PR Descriptions
+
+There's a specific kind of procrastination that every engineer knows. You've done the work. The code is good. Tests pass. And then you open a new pull request and stare at the description box like it owes you money.
+
+I've written thousands of PR descriptions at this point. Some were thorough. Most were something like "fixes bug" or "updates logic." Not because I didn't care about communication, but because by the time the code is done, the last thing I want to do is write about it.
+
+So I built something to handle that for me, using Claude Skills.
+
+## What Claude Skills actually are
+
+If you use Claude Code, you've probably used slash commands. Skills are the evolved version of that. You create a `SKILL.md` file with instructions and frontmatter, drop it in a directory Claude knows about, and it becomes part of Claude's toolkit.
+
+What makes skills more powerful than a regular prompt is that Claude can invoke them automatically when relevant, or you can call them directly with `/skill-name`. The frontmatter controls a lot of the behavior: when Claude should load the skill, whether it runs inline or in an isolated subagent, which tools it's allowed to use, and whether you or Claude gets to decide when it runs.
+
+A simple skill looks like this:
+
+```yaml
+---
+name: my-skill
+description: What this skill does and when to use it
+---
+
+Instructions Claude follows when this skill is active.
+```
+
+That's the whole thing. The `description` is what Claude reads to decide whether to load the skill automatically. Get that right, and the skill shows up exactly when you need it without having to remember it exists.
+
+Skills can live at three levels: personal (`~/.claude/skills/`), project (`.claude/skills/`), or enterprise-wide. Personal skills follow you across every project. Project skills are specific to a repo. The scope depends on what you're building.
+
+## Why more skills means a better Claude
+
+Here's the thing about Claude Skills: they're not just shortcuts. They're a way to teach Claude how you actually work.
+
+Claude Code follows the open Agent Skills standard, which means skills you build are portable across tools that support it. But more practically, every skill you add narrows the gap between what you mean and what Claude does. A well-written skill means you don't have to re-explain your conventions, your format preferences, or your workflow every single session.
+
+The more relevant skills Claude has access to, the less cognitive overhead you carry. Instead of prompting Claude with context, you capture that context once in a skill and get it back whenever it matters.
+
+## The PR Description skill
+
+The skill I published does one thing: it reads your git diff and writes a proper PR description from it.
+
+Run `/pr-description` in any repo and it:
+
+1. Pulls your diff (tries `git diff main`, falls back to staged or `HEAD~1`)
+2. Reads your commit messages
+3. Detects the change type from conventional commit prefixes, or infers it from file paths if you don't use them
+4. Outputs a structured markdown description with a summary, what changed, how to test it, and a breaking changes section if relevant
+
+Works with any language. No setup. No configuration. Just run it after you're done with the code and paste what comes out.
+
+The skill uses `disable-model-invocation: true` in its frontmatter, which means Claude won't trigger it automatically. I made that call deliberately. Generating a PR description has side effects in the sense that you're about to paste it somewhere and publish it. That's a thing I want to invoke myself, not have happen because Claude thought my code looked ready.
+
+## Why I bothered building this
+
+PR descriptions are communication, not ceremony. When I skip writing a good one, I'm not saving time, I'm just deferring it to the reviewer who now has to reverse-engineer what changed and why from the diff alone.
+
+The problem was never that I didn't know what to write. It was friction. By the time I'm done coding, I'm mentally done with that task and the description box feels like an obstacle between me and merging.
+
+Having Claude draft it from the actual diff means I get a description that's accurate, not one I rushed through. I still read it and edit it. But the blank page problem disappears.
+
+You can grab it from the repo and drop it into your personal skills folder:
+
+```bash
+mkdir -p ~/.claude/skills/pr-description
+# copy SKILL.md from the repo into that directory
+```
+
+Then just run `/pr-description` next time you're sitting on a finished PR.
+
+---
+
+If you've been sitting on an idea for a skill, the barrier is genuinely low. A `SKILL.md` file with a good description and clear instructions is enough to start. The hard part is identifying the friction point, and if you've ever typed the same thing into Claude more than twice, you've found one.

@@ -131,12 +131,20 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    title: 'I Built a Claude Skill That Writes Your PR Descriptions',
+    description:
+      'What Claude Skills are, why they matter, and how I built one that generates pull request descriptions straight from your git diff.',
+    link: '/blog/i-built-a-claude-skill-that-writes-your-pr-descriptions',
+    uid: 'i-built-a-claude-skill-that-writes-your-pr-descriptions',
+    date: '2026-02-24',
+  },
+  {
     title: 'Why Every Engineer Should Write Unit Tests',
     description:
       'Unit tests are often skipped under time pressure, but they pay dividends in code quality, refactoring confidence, and team velocity.',
     link: '/blog/why-engineers-should-write-unit-tests',
     uid: 'why-engineers-should-write-unit-tests',
-    date: '2026-02-24',
+    date: '2026-02-10',
   },
 ]
 
