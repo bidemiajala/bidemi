@@ -5,13 +5,6 @@ import { useEffect, useState } from 'react'
 
 function ShareBar() {
   const [copyText, setCopyText] = useState('Copy link')
-  const [url, setUrl] = useState('')
-  const [title, setTitle] = useState('')
-
-  useEffect(() => {
-    setUrl(window.location.href)
-    setTitle(document.title)
-  }, [])
 
   useEffect(() => {
     if (copyText === 'Copied!') {
@@ -21,12 +14,12 @@ function ShareBar() {
   }, [copyText])
 
   function handleCopy() {
-    navigator.clipboard.writeText(url)
+    navigator.clipboard.writeText(window.location.href)
     setCopyText('Copied!')
   }
 
-  const encodedUrl = encodeURIComponent(url)
-  const encodedTitle = encodeURIComponent(title)
+  const encodedUrl = encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')
+  const encodedTitle = encodeURIComponent(typeof window !== 'undefined' ? document.title : '')
 
   return (
     <div className="flex items-center gap-3">
