@@ -4,13 +4,13 @@ import { BLOG_POSTS } from '../data'
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Thoughts on quality engineering, test automation, AI testing, and software development best practices.',
+  description: 'Personal thoughts, things I\'m building, and experiences along the way.',
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
     title: 'Blog | Bidemi Ajala',
-    description: 'Thoughts on quality engineering, test automation, AI testing, and software development best practices.',
+    description: 'Personal thoughts, things I\'m building, and experiences along the way.',
     url: 'https://www.bidemi.xyz/blog',
   },
 }
@@ -27,7 +27,7 @@ export default function BlogPage() {
           Blog
         </h1>
         <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400">
-          Writing on quality engineering, test automation, AI, and the craft of building software.
+          Personal thoughts, things I'm building, and experiences along the way.
         </p>
       </div>
 
