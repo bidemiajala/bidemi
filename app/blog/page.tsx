@@ -21,7 +21,7 @@ const sorted = [...BLOG_POSTS].sort(
 
 export default function BlogPage() {
   return (
-    <div className="space-y-10">
+    <div className="mt-8 space-y-10">
       <div>
         <h1 className="text-xl font-medium text-zinc-900 dark:text-zinc-100">
           Blog
