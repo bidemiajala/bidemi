@@ -19,6 +19,12 @@ export function Header() {
           New York
         </TextEffect>
       </div>
+      <Link
+        href="/blog"
+        className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+      >
+        Blog
+      </Link>
     </header>
   )
 }
