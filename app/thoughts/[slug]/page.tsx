@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: `/thoughts/${slug}`,
     },
     openGraph: {
       title: `${post.title} | Bidemi Ajala`,
       description: post.description,
-      url: `https://www.bidemi.xyz/blog/${slug}`,
+      url: `https://www.bidemi.xyz/thoughts/${slug}`,
     },
   }
 }

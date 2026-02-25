@@ -134,7 +134,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'I Built a Claude Skill That Writes Your PR Descriptions',
     description:
       'What Claude Skills are, why they matter, and how I built one that generates pull request descriptions straight from your git diff.',
-    link: '/blog/i-built-a-claude-skill-that-writes-your-pr-descriptions',
+    link: '/thoughts/i-built-a-claude-skill-that-writes-your-pr-descriptions',
     uid: 'i-built-a-claude-skill-that-writes-your-pr-descriptions',
     date: '2026-02-24',
   },
@@ -142,7 +142,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Why Every Engineer Should Write Unit Tests',
     description:
       'Unit tests are often skipped under time pressure, but they pay dividends in code quality, refactoring confidence, and team velocity.',
-    link: '/blog/why-engineers-should-write-unit-tests',
+    link: '/thoughts/why-engineers-should-write-unit-tests',
     uid: 'why-engineers-should-write-unit-tests',
     date: '2026-02-10',
   },
@@ -243,7 +243,7 @@ export const ARTICLES: Article[] = [
   {
     title: "Here's why you should write unit tests",
     description: "A comprehensive guide exploring the benefits of unit testing, from saving time and money to improving code quality. Covers testing techniques, tools, and best practices for writing effective automated tests.",
-    url: "https://moduscreate.com/blog/heres-why-you-should-write-unit-tests/",
+    url: "https://moduscreate.com/thoughts/heres-why-you-should-write-unit-tests/",
     id: "article1",
     date: "2022-03-15",
   },

@@ -366,10 +366,10 @@ function ArticlesSection() {
           </button>
         ) : (
           <Link
-            href="/blog"
+            href="/thoughts"
             className="inline-flex items-center gap-1 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
           >
-            View all on blog
+            View all thoughts
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 2L6 10M2 6L10 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
@@ -718,10 +718,10 @@ export default function Personal() {
             </MagneticSocialLink>
           ))}
           <Link
-            href="/blog"
+            href="/thoughts"
             className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
           >
-            Blog
+            Thoughts
           </Link>
         </div>
       </motion.section>

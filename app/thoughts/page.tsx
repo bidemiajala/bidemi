@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { BLOG_POSTS } from '../data'
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Thoughts',
   description: 'Personal thoughts, things I\'m building, and experiences along the way.',
   alternates: {
-    canonical: '/blog',
+    canonical: '/thoughts',
   },
   openGraph: {
-    title: 'Blog | Bidemi Ajala',
+    title: 'Thoughts | Bidemi Ajala',
     description: 'Personal thoughts, things I\'m building, and experiences along the way.',
-    url: 'https://www.bidemi.xyz/blog',
+    url: 'https://www.bidemi.xyz/thoughts',
   },
 }
 
@@ -24,7 +24,7 @@ export default function BlogPage() {
     <div className="mt-8 space-y-10">
       <div>
         <h1 className="text-xl font-medium text-zinc-900 dark:text-zinc-100">
-          Blog
+          Thoughts
         </h1>
         <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400">
           Personal thoughts, things I'm building, and experiences along the way.

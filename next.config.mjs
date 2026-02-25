@@ -5,9 +5,21 @@ const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   eslint: {
-    // Disable ESLint during builds to prevent deployment failures
-    // You can still run `npm run lint` locally to check for issues
     ignoreDuringBuilds: true,
+  },
+  async redirects() {
+    return [
+      {
+        source: '/blog',
+        destination: '/thoughts',
+        permanent: true,
+      },
+      {
+        source: '/blog/:slug',
+        destination: '/thoughts/:slug',
+        permanent: true,
+      },
+    ]
   },
 };
 

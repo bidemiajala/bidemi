@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 export function Header() {
   const pathname = usePathname()
-  const onBlog = pathname.startsWith('/blog')
+  const onBlog = pathname.startsWith('/thoughts')
 
   return (
     <header className="mb-8 flex items-center justify-between">
@@ -25,10 +25,10 @@ export function Header() {
       </div>
       {!onBlog && (
         <Link
-          href="/blog"
+          href="/thoughts"
           className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
         >
-          Blog
+          Thoughts
         </Link>
       )}
     </header>
