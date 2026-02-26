@@ -1,51 +1,55 @@
 'use client'
-import { TextMorph } from '@/components/ui/text-morph'
+import { Check, Link2, Linkedin, Twitter } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 function ShareBar() {
-  const [copyText, setCopyText] = useState('Copy link')
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
-    if (copyText === 'Copied!') {
-      const t = setTimeout(() => setCopyText('Copy link'), 2000)
+    if (copied) {
+      const t = setTimeout(() => setCopied(false), 2000)
       return () => clearTimeout(t)
     }
-  }, [copyText])
+  }, [copied])
 
   function handleCopy() {
     navigator.clipboard.writeText(window.location.href)
-    setCopyText('Copied!')
+    setCopied(true)
   }
 
   const encodedUrl = encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')
   const encodedTitle = encodeURIComponent(typeof window !== 'undefined' ? document.title : '')
 
+  const iconBtn =
+    'inline-flex items-center justify-center rounded-full border border-zinc-200 p-2 text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-zinc-200'
+
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2">
       <a
         href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on X"
-        className="text-sm text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
+        className={iconBtn}
       >
-        X
+        <Twitter className="h-4 w-4" />
       </a>
       <a
         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on LinkedIn"
-        className="text-sm text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
+        className={iconBtn}
       >
-        LinkedIn
+        <Linkedin className="h-4 w-4" />
       </a>
       <button
         onClick={handleCopy}
         type="button"
-        className="flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
+        aria-label="Copy link"
+        className={iconBtn}
       >
-        <TextMorph>{copyText}</TextMorph>
+        {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
       </button>
     </div>
   )
